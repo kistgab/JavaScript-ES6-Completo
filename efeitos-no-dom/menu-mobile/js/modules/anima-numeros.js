@@ -4,7 +4,6 @@ export default function initAnimaNumeros() {
   observer.observe(observerTarget, { attributes: true });
 
   function handleMutation(mutation) {
-    console.log(mutation);
     if (mutation[0].target.classList.contains("ativo")) {
       observer.disconnect();
       animaNumeros();
