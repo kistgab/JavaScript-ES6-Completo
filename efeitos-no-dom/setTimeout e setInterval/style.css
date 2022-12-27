@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.green {
+  background: green;
+}
+
+body {
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.cronometer {
+  text-align: center;
+}
+
+.cronometer span {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cronometer button {
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+}
