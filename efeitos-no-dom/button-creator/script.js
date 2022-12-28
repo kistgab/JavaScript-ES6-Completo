@@ -19,7 +19,7 @@ const handleStyle = {
     this.element.style.color = value;
   },
   fontSize(value) {
-    this.element.style.fontSize = `${value}px`;
+    this.element.style.fontSize = `${value}rem`;
   },
   fontFamily(value) {
     this.element.style.fontFamily = value;
@@ -36,12 +36,31 @@ const handleStyle = {
 };
 
 function handleChange(event) {
-  console.log(event.target.name, event.target.value);
-  handleStyle[event.target.name](event.target.value);
+  const name = event.target.name;
+  const value = event.target.value;
+  handleStyle[name](value);
+  saveValues(name, value);
   showCss();
 }
 
 function showCss() {
   console.log(btn.style.cssText);
   cssBlock.innerHTML = "<span>" + btn.style.cssText.split("; ").join(";</span><span>");
+}
+
+function saveValues(propName, value) {
+  localStorage[propName] = value;
+}
+
+initValues();
+
+function initValues() {
+  const campos = Array.from(controles.elements);
+  campos.forEach((campo) => {
+    if (localStorage[campo.name]) {
+      handleStyle[campo.name](localStorage[campo.name]);
+      campo.value = localStorage[campo.name];
+    }
+  });
+  showCss();
 }
