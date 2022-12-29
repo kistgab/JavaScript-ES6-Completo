@@ -18,8 +18,9 @@ class Button {
     this.text = text;
     this.background = background;
   }
-  element() {
-    const buttonElement = document.createElement("button");
+  get element() {
+    const type = this._elementType || "button";
+    const buttonElement = document.createElement(type);
     buttonElement.innerText = this.text;
     buttonElement.style.background = this.background;
     return buttonElement;
@@ -27,7 +28,7 @@ class Button {
 
   appendTo(target) {
     const targetElement = document.querySelector(target);
-    targetElement.appendChild(this.element());
+    targetElement.appendChild(this.element);
     return targetElement;
   }
 
@@ -41,6 +42,10 @@ class Button {
 }
 
 const blueButton = new Button("Comprar", "blue");
-console.log(blueButton.appendTo("body"));
+blueButton.appendTo("body");
+const blueButtonStatic = Button.createButton("comprar", "blue");
 
-const blueButtonStatic = Button.createButton("comprar", blue);
+const grayButton = new Button("Click here", "gray");
+const btnGray = grayButton.element;
+console.log(grayButton);
+console.log(btnGray);

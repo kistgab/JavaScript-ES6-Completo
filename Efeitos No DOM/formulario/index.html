@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+
+    form {
+      max-width: 25rem;
+      margin: 0 auto;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      border: .125rem solid #000;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    input {
+      display: block;
+    }
+
+    textarea {
+      height: 9.375rem;
+    }
+  </style>
+
+  <form name="contato" id="contato">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome">
+    <span class="erro"></span>
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email">
+    <span class="erro"></span>
+    <label for="mensagem">Mensagem</label>
+    <textarea name="mensagem" id="mensagem"> </textarea>
+    <span class="erro"></span>
+
+    <select name="cores" id="cores">
+      <option value="blue">Azul</option>
+      <option value="red">Vermelho</option>
+    </select>
+
+    <input type="color">
+    <input type="date">
+    <input type="number">
+    <input type="range" min="1" max="10000">
+    <input type="password">
+
+    <input type="checkbox" name="identidade" id="identidade" value="checkbox">
+
+  </form>
+
+  <script>
+    const contato = document.querySelector("#contato")
+
+    const dados = {}
+    function handleKeyUp(event) {
+      dados[event.target.name] = event.target.value
+      console.log(dados);
+    }
+
+    contato.addEventListener("change", handleKeyUp)
+  </script>
+</body>
+
+</html>
