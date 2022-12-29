@@ -26,6 +26,10 @@ class Button {
     return buttonElement;
   }
 
+  set element(type) {
+    this._elementType = type;
+  }
+
   appendTo(target) {
     const targetElement = document.querySelector(target);
     targetElement.appendChild(this.element);
