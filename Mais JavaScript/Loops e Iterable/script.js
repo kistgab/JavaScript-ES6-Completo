@@ -2,6 +2,7 @@
 // Utilizando o for...of
 // adicione uma classe a cada li
 const listItems = document.querySelectorAll("li");
+
 for (const listItem of listItems) {
   listItem.classList.add("my-extra-class");
 }
@@ -9,6 +10,7 @@ for (const listItem of listItems) {
 // Utilize o for...in para listar
 // todos as propriedades e valores
 // do objeto window
+
 for (const prop in window) {
-  console.log(prop);
+  console.log(`${prop}: ${window[prop]}`);
 }
